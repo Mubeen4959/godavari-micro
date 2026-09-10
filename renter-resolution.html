@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>Renter Resolution Lifecycle &mdash; Godavari Micro</title>
+  <meta name="description" content="Round-the-clock telephone, SMS, OTA messaging, and counter escalation resolution under a strict 3-minute SLA.">
+  <meta name="keywords" content="Godavari Micro, car rental logistics operation, car rental operations, fleet management support, OTA rate management, car rental claims, chargeback recovery">
+  <meta name="author" content="Godavari Micro">
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Renter Resolution Lifecycle &mdash; Godavari Micro">
+  <meta property="og:description" content="Round-the-clock telephone, SMS, OTA messaging, and counter escalation resolution under a strict 3-minute SLA.">
+  <meta property="og:image" content="assets/godavari-micro-logo-gm-monogram.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Renter Resolution Lifecycle — Godavari Micro">
+  <meta name="twitter:description" content="Round-the-clock telephone, SMS, OTA messaging, and counter escalation resolution under a strict 3-minute SLA.">
+  <meta name="twitter:image" content="assets/godavari-micro-logo-gm-monogram.png">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64x64.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192x192.png">
+  <link rel="apple-touch-icon" href="assets/favicon-192x192.png">
+
+  <!-- Typography: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Live Operations Telemetry Status Bar -->
+  <div class="telemetry-statusbar">
+    <div class="container telemetry-statusbar-inner">
+      <div class="telemetry-item">
+        <span class="pulse-dot" style="background:#00E676; box-shadow:0 0 8px #00E676;"></span>
+        <span class="telemetry-label">LAX FLEET COUNTER:</span>
+        <span class="telemetry-value">ACTIVE (PST)</span>
+      </div>
+      <div class="telemetry-divider"></div>
+      <div class="telemetry-item">
+        <span class="pulse-dot" style="background:#00E676; box-shadow:0 0 8px #00E676;"></span>
+        <span class="telemetry-label">INDIA LOGISTICS DESK:</span>
+        <span class="telemetry-value">ONLINE (IST)</span>
+      </div>
+      <div class="telemetry-divider"></div>
+      <div class="telemetry-item">
+        <span class="pulse-dot sync"></span>
+        <span class="telemetry-label">365-DAY RATE RADAR:</span>
+        <span class="telemetry-value">CALIBRATED</span>
+      </div>
+      <div class="telemetry-divider"></div>
+      <div class="telemetry-item">
+        <span class="telemetry-label">DISPUTE DEFENSE:</span>
+        <span class="telemetry-value highlight">80.6% WIN RATE</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Site Header / Navigation -->
+  <header class="site-header" id="header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-lockup" aria-label="Godavari Micro Homepage">
+        <div class="brand-text-block">
+          <picture>
+            <source srcset="assets/godavari-micro-wordmark.svg" type="image/svg+xml">
+            <img src="assets/godavari-micro-wordmark@2x.png" alt="GODAVARI MICRO" class="nav-brand-wordmark" width="409" height="44">
+          </picture>
+          <span class="brand-descriptor">Global Logistics Operations</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link nav-link-home"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg> Home</a>
+        <a href="overview.html" class="nav-link">Overview</a>
+        <a href="reputation.html" class="nav-link">Reputation</a>
+        <a href="claims-defense.html" class="nav-link">Claims &amp; Defense</a>
+        <a href="profit-engine.html" class="nav-link">Profit Engine</a>
+        
+          <div class="nav-dropdown">
+            <button type="button" class="nav-link nav-dropdown-toggle active" aria-expanded="false" aria-haspopup="true">
+              <span>Operations</span>
+              <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="nav-dropdown-menu" role="menu">
+              <a href="operations.html" class="dropdown-item" role="menuitem">
+                <div class="dropdown-item-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                </div>
+                <div class="dropdown-item-text">
+                  <span class="dropdown-item-title">Two Locations Model</span>
+                  <span class="dropdown-item-desc">India logistics operation + Los Angeles physical counter</span>
+                </div>
+              </a>
+              <a href="blueprints.html" class="dropdown-item" role="menuitem">
+                <div class="dropdown-item-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                </div>
+                <div class="dropdown-item-text">
+                  <span class="dropdown-item-title">6 Core Blueprints</span>
+                  <span class="dropdown-item-desc">Dynamic rates, guest resolution &amp; fleet readiness</span>
+                </div>
+              </a>
+              <a href="rate-management.html" class="dropdown-item" role="menuitem">
+                <div class="dropdown-item-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                </div>
+                <div class="dropdown-item-text">
+                  <span class="dropdown-item-title">Rate Management Engine</span>
+                  <span class="dropdown-item-desc">24/7 competitive shopping, publishing &amp; yield</span>
+                </div>
+              </a>
+              <a href="renter-resolution.html" class="dropdown-item active" role="menuitem">
+                <div class="dropdown-item-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                </div>
+                <div class="dropdown-item-text">
+                  <span class="dropdown-item-title">Renter Resolution Lifecycle</span>
+                  <span class="dropdown-item-desc">Instant phone, OTA message &amp; counter escalation</span>
+                </div>
+              </a>
+              <a href="balance-recovery.html" class="dropdown-item" role="menuitem">
+                <div class="dropdown-item-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                </div>
+                <div class="dropdown-item-text">
+                  <span class="dropdown-item-title">Balance Recovery &amp; Subrogation</span>
+                  <span class="dropdown-item-desc">Unpaid rentals, tolls, impounds &amp; claim recovery</span>
+                </div>
+              </a>
+              <a href="fleet-management.html" class="dropdown-item" role="menuitem">
+                <div class="dropdown-item-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                </div>
+                <div class="dropdown-item-text">
+                  <span class="dropdown-item-title">Fleet Management</span>
+                  <span class="dropdown-item-desc">Availability, parity, turnaround &amp; inventory balance</span>
+                </div>
+              </a>
+            </div>
+          </div>
+      </nav>
+
+      <div class="header-cta-wrap">
+        <a href="index.html#contact" class="btn btn-primary btn-sm header-consult-btn">
+          <span class="cta-desktop">Request a Consultation</span>
+          <span class="cta-mobile">Consult</span>
+        </a>
+        <button class="mobile-toggle" aria-label="Open Navigation Menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-overlay" aria-hidden="true"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation">
+    <div class="drawer-header">
+      <a href="index.html" class="drawer-logo" aria-label="Godavari Micro Homepage">
+        <picture>
+          <source srcset="assets/godavari-micro-wordmark.svg" type="image/svg+xml">
+          <img src="assets/godavari-micro-wordmark.png" alt="Godavari Micro" width="168" height="22">
+        </picture>
+      </a>
+      <button class="drawer-close" aria-label="Close Navigation">&times;</button>
+    </div>
+
+    <div class="drawer-body">
+      <nav class="drawer-nav">
+        <a href="index.html" class="drawer-link">Home</a>
+        <a href="overview.html" class="drawer-link">Executive Overview</a>
+        <a href="reputation.html" class="drawer-link">Online Reputation &amp; Reviews</a>
+        <a href="claims-defense.html" class="drawer-link">Claims &amp; Dispute Defense</a>
+        <a href="profit-engine.html" class="drawer-link">Profit Engine &amp; Margins</a>
+        <a href="profit-engine.html#roi-calculator" class="drawer-link drawer-link-highlight">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="16" y1="14" x2="16" y2="18"></line><path d="M16 10h.01"></path><path d="M12 10h.01"></path><path d="M8 10h.01"></path><path d="M12 14h.01"></path><path d="M8 14h.01"></path><path d="M12 18h.01"></path><path d="M8 18h.01"></path></svg>
+          <span>Fleet Margin Calculator</span>
+          <span class="drawer-badge">TOOL</span>
+        </a>
+
+        <div style="margin-top:12px; padding-top:12px; border-top:1px solid #eef2f8;">
+          <span style="font-size:0.75rem; font-weight:800; color:var(--color-highlight); text-transform:uppercase; letter-spacing:0.1em; display:block; margin-bottom:8px;">Operations Blueprints</span>
+          <a href="operations.html" class="drawer-link" style="padding-left:10px;">• Two Locations Model</a>
+          <a href="blueprints.html" class="drawer-link" style="padding-left:10px;">• 6 Core Blueprints</a>
+          <a href="rate-management.html" class="drawer-link" style="padding-left:10px;">• Rate Management Engine</a>
+          <a href="renter-resolution.html" class="drawer-link active" style="padding-left:10px;">• Renter Resolution Lifecycle</a>
+          <a href="balance-recovery.html" class="drawer-link" style="padding-left:10px;">• Balance Recovery &amp; Subrogation</a>
+          <a href="fleet-management.html" class="drawer-link" style="padding-left:10px;">• Fleet Management</a>
+        </div>
+
+        <a href="index.html#contact" class="drawer-link" style="color:var(--color-highlight); margin-top:8px;">Contact &amp; Consultation</a>
+      </nav>
+    </div>
+
+    <div class="drawer-footer">
+      <a href="index.html#contact" class="btn btn-primary drawer-cta-btn">Request a Consultation →</a>
+      <div class="drawer-contact-info">
+        <a href="tel:+919834501195">📞 (+91) 9834501195</a>
+        <a href="mailto:Shoaib.s@ampmcarrental.com">✉️ Shoaib.s@ampmcarrental.com</a>
+      </div>
+    </div>
+  </aside>
+
+  <main>
+    <!-- SCROLL 1: HERO & 3 PERFORMANCE METRICS -->
+    <section class="subpage-compact-hero" style="padding-bottom: 28px;">
+      <div class="container text-center">
+        <div class="section-eyebrow center-block">Guest Care &amp; Incident Dispatch</div>
+        <h1 class="page-hero-title">Renter Resolution Lifecycle</h1>
+        <p class="page-hero-subtitle center-block" style="margin-bottom: 28px;">
+          A reservation confirmed is only the beginning. A renter resolved is the objective. 24/7 guest care resolving friction before, during, and after every rental.
+        </p>
+
+                <div class="subpage-metrics-grid cols-3">
+          <div class="subpage-metric-card">
+            <div class="subpage-metric-num highlight-green">&lt; <span data-count-target="3">3</span> Min</div>
+            <div class="subpage-metric-title">FIRST-TOUCH SLA</div>
+            <p class="subpage-metric-desc">Instant handling of inbound guest calls, SMS, and OTA portal messages.</p>
+          </div>
+          <div class="subpage-metric-card">
+            <div class="subpage-metric-num highlight-cyan">24/7/365</div>
+            <div class="subpage-metric-title">CONTINUOUS COVERAGE</div>
+            <p class="subpage-metric-desc">Round-the-clock shift support synchronizing across all US airport timezones.</p>
+          </div>
+          <div class="subpage-metric-card">
+            <div class="subpage-metric-num"><span data-count-target="94.2">94.2</span>%</div>
+            <div class="subpage-metric-title">FIRST-CONTACT RESOLUTION</div>
+            <p class="subpage-metric-desc">Inquiries resolved without escalating to busy physical counter staff.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCROLL 2: CORE CONTENT & BOTTOM CTA -->
+    <section class="subpage-section-compact">
+      <div class="container">
+                <div class="text-center" style="margin-bottom: 24px;">
+          <div class="section-eyebrow center-block">Full Lifecycle Support</div>
+          <h2 style="font-size: clamp(1.4rem, 2.2vw, 1.85rem); font-weight: 800; color: #060B24; margin-bottom: 8px;">The 3 Stages of Renter Resolution</h2>
+          <p style="color: #64748B; font-size: 0.9rem; max-width: 660px; margin: 0 auto;">"A reservation confirmed is only the beginning. A renter resolved is the objective." Resolving operational friction before, during, and after every rental contract.</p>
+        </div>
+
+        <div class="subpage-cards-grid cols-3" style="margin-bottom: 24px;">
+          <div class="subpage-feature-card">
+            <div class="subpage-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            </div>
+            <div class="subpage-card-title">1. Pre-Rental Readiness</div>
+            <p class="subpage-card-text"><strong>Before arrival:</strong> Validating customer credentials, clarifying security deposit rules, answering insurance questions, and monitoring incoming flight delays to avoid no-shows.</p>
+          </div>
+
+          <div class="subpage-feature-card">
+            <div class="subpage-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            </div>
+            <div class="subpage-card-title">2. Active Rental Support</div>
+            <p class="subpage-card-text"><strong>During the trip:</strong> Rapid authorization of rental extensions, 24/7 roadside assistance dispatch (battery, flat tire, lockout), vehicle swap logistics, and emergency accident logging.</p>
+          </div>
+
+          <div class="subpage-feature-card">
+            <div class="subpage-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            </div>
+            <div class="subpage-card-title">3. Post-Rental Resolution</div>
+            <p class="subpage-card-text"><strong>After return:</strong> Handling billing inquiries, fuel &amp; toll charge transparency, security deposit releases, and immediate service recovery before complaints turn into negative public reviews.</p>
+          </div>
+        </div>
+
+        <!-- Case Study Trigger Card -->
+        <div class="subpage-case-study-trigger">
+          <div class="trigger-meta">
+            <span class="trigger-badge">VERIFIED CASE STUDY</span>
+            <span class="trigger-client">NextCar Multi-Branch Fleet</span>
+          </div>
+          <div class="trigger-headline">
+            "Achieving a sub-3-minute customer response SLA across 4 airport locations, eliminating counter queue escalations."
+          </div>
+          <button type="button" class="btn btn-sm btn-outline open-case-study-btn" data-client="nextcar">
+            <span>Read Operations Case Study</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
+
+        <!-- Compact Bottom CTA Banner -->
+        <div class="subpage-compact-cta" style="margin-top: 36px;">
+          <div class="subpage-compact-cta-text">
+            <div style="font-family: var(--font-mono, monospace); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.12em; color: #00F0FF; text-transform: uppercase; margin-bottom: 4px;">OPERATIONS CONSULTATION</div>
+            <h3>Deploy Godavari Micro's Operating Layer to Your Fleet</h3>
+            <p>Connect your counter operations with a dedicated 24/7 logistics operations team managing pricing, disputes, and guest care.</p>
+          </div>
+          <a href="index.html#contact" class="btn btn-primary" style="white-space:nowrap; padding:12px 22px; font-size:0.875rem;">
+            <span>Request Operations Consultation</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Interactive Client Case Study Modal (Percentages Only, Zero Dollar Amounts) -->
+  <div class="case-study-modal-overlay" id="caseStudyModalOverlay" role="dialog" aria-modal="true" aria-labelledby="caseStudyModalTitle" aria-hidden="true">
+    <div class="case-study-modal-dialog">
+      <button class="case-study-modal-close" id="caseStudyModalClose" aria-label="Close Case Study">&times;</button>
+      
+      <div class="case-study-client-tabs">
+        <button class="case-study-tab-btn" data-target-client="priceless">Priceless LAX</button>
+        <button class="case-study-tab-btn" data-target-client="nextcar">NextCar Multi-Branch</button>
+        <button class="case-study-tab-btn" data-target-client="ampm">AMPM Rent A Car</button>
+      </div>
+
+      <div class="case-study-modal-content" id="caseStudyModalContent">
+        <!-- Dynamic Case Study Content Injected by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand-col">
+          <div class="footer-logo-badge">
+            <div class="brand-text-block">
+              <picture>
+                <source srcset="assets/godavari-micro-wordmark.svg" type="image/svg+xml">
+                <img src="assets/godavari-micro-wordmark@2x.png" alt="GODAVARI MICRO" class="nav-brand-wordmark" width="409" height="44" style="height:26px;">
+              </picture>
+              <span class="brand-descriptor">Logistics Operations</span>
+            </div>
+          </div>
+          <p class="footer-tagline">"The Logistics Operation Power Behind the Rental Operation."</p>
+          <p style="font-size: 0.8125rem; color: rgba(255, 255, 255, 0.7); line-height: 1.6;">
+            Providing continuous 24/7 rate management, customer resolution, online reputation, profit engine add-on growth, and claims subrogation for car rental businesses.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-title">Navigation</div>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="overview.html" class="footer-link">Executive Overview</a></li>
+            <li><a href="reputation.html" class="footer-link">Online Reputation &amp; Reviews</a></li>
+            <li><a href="claims-defense.html" class="footer-link">Claims &amp; Dispute Defense</a></li>
+            <li><a href="profit-engine.html" class="footer-link">Profit Engine &amp; Margins</a></li>
+            <li><a href="profit-engine.html#roi-calculator" class="footer-link">Fleet Margin Calculator</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">Operations Playbook</div>
+          <ul class="footer-links">
+            <li><a href="operations.html" class="footer-link">Two Locations Model</a></li>
+            <li><a href="blueprints.html" class="footer-link">6 Core Blueprints</a></li>
+            <li><a href="rate-management.html" class="footer-link">Rate Management Engine</a></li>
+            <li><a href="renter-resolution.html" class="footer-link">Renter Resolution</a></li>
+            <li><a href="balance-recovery.html" class="footer-link">Balance Recovery</a></li>
+            <li><a href="fleet-management.html" class="footer-link">Fleet Management</a></li>
+            <li><a href="index.html#contact" class="footer-link">Request Consultation</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">Locations &amp; Contact</div>
+          <ul class="footer-links">
+            <li class="footer-link"><strong>Corporate Office (India):</strong> Sr. no. 16/4/2/1 Majestique Biznow, Office no.602, 603 &amp; 604, Off Nibm Road, Kondhwa (kh), Pune 411048, Maharashtra, India</li>
+            <li class="footer-link"><strong>Fleet Operations (USA):</strong> 9750 Airport Boulevard, Los Angeles, California 90045, USA</li>
+            <li class="footer-link"><strong>Direct Phone:</strong> <a href="tel:+919834501195" style="color:var(--color-white); text-decoration:underline;">(+91) 9834501195</a></li>
+            <li class="footer-link"><strong>Official Email:</strong><br>
+              <a href="mailto:Shoaib.s@ampmcarrental.com" style="color:var(--color-highlight-hover); text-decoration:underline;">Shoaib.s@ampmcarrental.com</a>
+            </li>
+            <li class="footer-link"><strong>Operational Shift:</strong> 24 Hours / 7 Days / 365 Days Continuous</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; <span id="currentYear">2026</span> Godavari Micro. All Rights Reserved. Enterprise Car Rental Logistics Operations.
+        </div>
+        <div>
+          "Your Fleet Stays Local. Your Operations Become Global."
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Set Dynamic Year -->
+  <script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Main JavaScript Bundle -->
+  <script src="js/main.js"></script>
+
+  <!-- Floating Return to Home Button -->
+  <a href="index.html" class="floating-back-home" title="Return to Homepage">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+    <span>Back to Home</span>
+  </a>
+</body>
+</html>
