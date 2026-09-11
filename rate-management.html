@@ -320,19 +320,42 @@
     </section>
   </main>
 
-  <!-- Interactive Client Case Study Modal (Percentages Only, Zero Dollar Amounts) -->
+  <!-- Client Operational Case Study Modal (% Metrics Only) -->
   <div class="case-study-modal-overlay" id="caseStudyModalOverlay" role="dialog" aria-modal="true" aria-labelledby="caseStudyModalTitle" aria-hidden="true">
-    <div class="case-study-modal-dialog">
-      <button class="case-study-modal-close" id="caseStudyModalClose" aria-label="Close Case Study">&times;</button>
-      
-      <div class="case-study-client-tabs">
-        <button class="case-study-tab-btn" data-target-client="priceless">Priceless LAX</button>
-        <button class="case-study-tab-btn" data-target-client="nextcar">NextCar Multi-Branch</button>
-        <button class="case-study-tab-btn" data-target-client="ampm">AMPM Rent A Car</button>
+    <div class="case-study-modal" id="caseStudyModal">
+      <!-- Modal Top Bar (Integrated Sticky Header) -->
+      <div class="case-study-modal-top">
+        <div class="case-study-modal-title-row">
+          <div class="case-study-eyebrow-row">
+            <span class="case-study-tag">OPERATIONAL CASE STUDY // % PERFORMANCE OVERVIEW</span>
+            <span class="case-study-verified-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Verified Ops Data
+            </span>
+          </div>
+          <button class="case-study-modal-close" id="caseStudyModalClose" aria-label="Close Case Study">&times;</button>
+        </div>
+
+        <!-- Quick Operator Tabs Integrated in Top Bar -->
+        <div class="case-study-tabs-nav" role="tablist">
+          <button class="case-study-tab-btn active" data-target-client="priceless" role="tab" aria-selected="true">
+            <span class="tab-indicator-dot" style="background:#60A5FA;"></span>
+            <span>Priceless Car Rental</span>
+          </button>
+          <button class="case-study-tab-btn" data-target-client="nextcar" role="tab" aria-selected="false">
+            <span class="tab-indicator-dot" style="background:#34D399;"></span>
+            <span>NextCar Rental</span>
+          </button>
+          <button class="case-study-tab-btn" data-target-client="ampm" role="tab" aria-selected="false">
+            <span class="tab-indicator-dot" style="background:#F87171;"></span>
+            <span>AMPM Rent A Car</span>
+          </button>
+        </div>
       </div>
 
-      <div class="case-study-modal-content" id="caseStudyModalContent">
-        <!-- Dynamic Case Study Content Injected by JS -->
+      <!-- Dynamic Content Body -->
+      <div class="case-study-modal-body" id="caseStudyModalContent">
+        <!-- Injected dynamically via JS -->
       </div>
     </div>
   </div>

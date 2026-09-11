@@ -605,7 +605,7 @@ function initCaseStudyModal() {
   const overlay = document.getElementById('caseStudyModalOverlay');
   const modalContent = document.getElementById('caseStudyModalContent');
   const closeBtn = document.getElementById('caseStudyModalClose');
-  const brandCards = document.querySelectorAll('.operating-brand-card[data-client]');
+  const brandCards = document.querySelectorAll('.operating-brand-card[data-client], .open-case-study-btn[data-client], [data-client]:not(.case-study-tab-btn)');
   const tabBtns = document.querySelectorAll('.case-study-tab-btn[data-target-client]');
 
   if (!overlay || !modalContent) return;
