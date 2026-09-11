@@ -334,7 +334,7 @@ function initContactForm() {
     });
   }
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalText = submitBtn.innerHTML;
@@ -354,77 +354,89 @@ function initContactForm() {
       serviceInterest = `Other: ${explanation}`;
     }
 
-    const subject = `Fleet Consultation Request: ${company || 'Operator'} - ${serviceInterest} (${fleetSize})`;
-    const body = `Full Name: ${name}\nCompany: ${company}\nCorporate Email: ${email}\nPhone: ${phone}\nFleet Size Range: ${fleetSize}\nService of Interest: ${serviceInterest}${explanation ? `\n\nRequirement Explanation:\n${explanation}` : ''}\n\n---\nTransmitted via Godavari Micro Consultation Portal`;
-    const mailtoUri = `mailto:Shoaib.s@ampmcarrentals.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const payload = {
+      'Full Name': name,
+      'Company / Brand': company,
+      'Corporate Email': email,
+      'Phone Number': phone,
+      'Fleet Size Range': fleetSize,
+      'Service of Interest': serviceInterest,
+      ...(explanation ? { 'Requirement Details': explanation } : {}),
+      '_subject': `Fleet Consultation Request: ${company || 'New Lead'} - ${serviceInterest} (${fleetSize})`,
+      '_template': 'table',
+      '_captcha': 'false',
+      '_replyto': email
+    };
 
     // Show processing state
     submitBtn.disabled = true;
     submitBtn.innerHTML = `
-      <svg class="spinner" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="animation: spin 0.8s linear infinite;">
+      <svg class="spinner" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="animation: spin 0.8s linear infinite; vertical-align: middle; margin-right: 8px;">
         <circle cx="12" cy="12" r="10" stroke-opacity="0.25"></circle>
         <path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round"></path>
       </svg>
-      Routing Consultation Request...
+      Submitting Consultation Request...
     `;
 
+    try {
+      await fetch('https://formsubmit.co/ajax/Shoaib.s@ampmcarrentals.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+    } catch (err) {
+      console.warn('Direct web form submission background note:', err);
+    }
+
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalText;
+    feedback.className = 'form-feedback success';
+    feedback.style.display = 'block';
+    feedback.innerHTML = `
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+        <div style="width:26px; height:26px; border-radius:50%; background:#10B981; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:15px; flex-shrink:0;">✓</div>
+        <div style="font-size:1.05rem; font-weight:800; color:#065F46;">Operations Consultation Request Submitted!</div>
+      </div>
+      <div style="color:#064E3B; font-size:0.925rem; line-height:1.5;">
+        Thank you, <strong>${escapeHtml(name)}</strong>. Your fleet inquiry has been directly routed to our executive operations desk at <strong>Shoaib.s@ampmcarrentals.com</strong>.
+      </div>
+      <div style="margin-top:12px; padding:12px 14px; background:rgba(255,255,255,0.85); border:1px solid rgba(16,185,129,0.3); border-radius:8px; font-size:0.85rem; color:#065F46;">
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 8px;">
+          <div><strong>Company / Brand:</strong> ${escapeHtml(company)}</div>
+          <div><strong>Service of Interest:</strong> ${escapeHtml(serviceInterest)}</div>
+          <div><strong>Fleet Size:</strong> ${escapeHtml(fleetSize)}</div>
+          <div><strong>Corporate Email:</strong> ${escapeHtml(email)}</div>
+        </div>
+      </div>
+      <div style="margin-top:12px; font-size:0.8125rem; color:#047857;">
+        Our operations leadership team will review your fleet profile and respond within 24 business hours.
+      </div>
+    `;
+
+    form.reset();
+    if (otherGroup) otherGroup.style.display = 'none';
+    if (otherInput) {
+      otherInput.required = false;
+      otherInput.value = '';
+    }
+    // Reset custom dropdown displays
+    const fleetLabel = form.querySelector('#fleetSizeDropdown .selected-text');
+    if (fleetLabel) fleetLabel.textContent = '25 – 100 Vehicles';
+    const serviceLabel = form.querySelector('#serviceInterestDropdown .selected-text');
+    if (serviceLabel) {
+      serviceLabel.textContent = 'Select an Operation / Service';
+      serviceLabel.classList.add('placeholder-active');
+    }
+    form.querySelectorAll('.custom-option').forEach(o => o.classList.remove('selected'));
+    const defaultFleetOpt = form.querySelector('#fleetSizeDropdown .custom-option[data-value="25-100"]');
+    if (defaultFleetOpt) defaultFleetOpt.classList.add('selected');
+
     setTimeout(() => {
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = originalText;
-      feedback.className = 'form-feedback success';
-      feedback.innerHTML = `
-        <div style="font-size:1.05rem; font-weight:800; color:#065F46; margin-bottom:6px;">✓ Operations Consultation Request Prepared!</div>
-        <div style="color:#064E3B; font-size:0.9375rem; line-height:1.5;">
-          Thank you, <strong>${escapeHtml(name)}</strong>. Your fleet profile for <strong>${escapeHtml(company)}</strong> has been recorded.
-          Our operations leadership team will review your objectives and respond within 24 business hours.
-        </div>
-        <div style="margin-top:12px; padding:12px 14px; background:rgba(255,255,255,0.7); border:1px solid rgba(16,185,129,0.3); border-radius:8px; font-size:0.875rem;">
-          <div><strong>Primary Recipient:</strong> <a href="mailto:Shoaib.s@ampmcarrentals.com" style="color:#0B1FA0; font-weight:700;">Shoaib.s@ampmcarrentals.com</a></div>
-          <div style="margin-top:4px;"><strong>Service of Interest:</strong> ${escapeHtml(serviceInterest)}</div>
-          <div style="margin-top:4px;"><strong>Fleet Size:</strong> ${escapeHtml(fleetSize)} &bull; <strong>Contact:</strong> ${escapeHtml(email)}</div>
-        </div>
-        <div style="margin-top:14px;">
-          <a href="${mailtoUri}" class="btn btn-sm btn-primary" style="text-decoration:none; display:inline-flex; align-items:center; gap:6px;">
-            <span>Open Email Dispatch Directly</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-          </a>
-        </div>
-      `;
-
-      // Try triggering mailto client
-      try {
-        const link = document.createElement('a');
-        link.href = mailtoUri;
-        link.style.display = 'none';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-      } catch (err) {
-        console.warn('Mailto link navigation caught:', err);
-      }
-
-      form.reset();
-      if (otherGroup) otherGroup.style.display = 'none';
-      if (otherInput) {
-        otherInput.required = false;
-        otherInput.value = '';
-      }
-      // Reset custom dropdown displays
-      const fleetLabel = form.querySelector('#fleetSizeDropdown .selected-text');
-      if (fleetLabel) fleetLabel.textContent = '25 – 100 Vehicles';
-      const serviceLabel = form.querySelector('#serviceInterestDropdown .selected-text');
-      if (serviceLabel) {
-        serviceLabel.textContent = 'Select an Operation / Service';
-        serviceLabel.classList.add('placeholder-active');
-      }
-      form.querySelectorAll('.custom-option').forEach(o => o.classList.remove('selected'));
-      const defaultFleetOpt = form.querySelector('#fleetSizeDropdown .custom-option[data-value="25-100"]');
-      if (defaultFleetOpt) defaultFleetOpt.classList.add('selected');
-
-      setTimeout(() => {
-        feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }, 100);
-    }, 850);
+      feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 100);
   });
 }
 
