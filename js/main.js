@@ -296,7 +296,7 @@ function initSmoothScroll() {
 
 /**
  * Interactive Contact Form
- * Transmits inquiry directly to Shoaib.s@ampmcarrental.com with rich feedback.
+ * Transmits inquiry directly to Shoaib.s@ampmcarrentals.com with rich feedback.
  */
 function initContactForm() {
   const form = document.getElementById('consultationForm');
@@ -319,7 +319,10 @@ function initContactForm() {
         otherGroup.style.display = 'block';
         if (otherInput) {
           otherInput.required = true;
-          otherInput.focus();
+          setTimeout(() => {
+            otherInput.focus();
+            otherGroup.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }, 60);
         }
       } else {
         otherGroup.style.display = 'none';
@@ -353,7 +356,7 @@ function initContactForm() {
 
     const subject = `Fleet Consultation Request: ${company || 'Operator'} - ${serviceInterest} (${fleetSize})`;
     const body = `Full Name: ${name}\nCompany: ${company}\nCorporate Email: ${email}\nPhone: ${phone}\nFleet Size Range: ${fleetSize}\nService of Interest: ${serviceInterest}${explanation ? `\n\nRequirement Explanation:\n${explanation}` : ''}\n\n---\nTransmitted via Godavari Micro Consultation Portal`;
-    const mailtoUri = `mailto:Shoaib.s@ampmcarrental.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoUri = `mailto:Shoaib.s@ampmcarrentals.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
     // Show processing state
     submitBtn.disabled = true;
@@ -376,7 +379,7 @@ function initContactForm() {
           Our operations leadership team will review your objectives and respond within 24 business hours.
         </div>
         <div style="margin-top:12px; padding:12px 14px; background:rgba(255,255,255,0.7); border:1px solid rgba(16,185,129,0.3); border-radius:8px; font-size:0.875rem;">
-          <div><strong>Primary Recipient:</strong> <a href="mailto:Shoaib.s@ampmcarrental.com" style="color:#0B1FA0; font-weight:700;">Shoaib.s@ampmcarrental.com</a></div>
+          <div><strong>Primary Recipient:</strong> <a href="mailto:Shoaib.s@ampmcarrentals.com" style="color:#0B1FA0; font-weight:700;">Shoaib.s@ampmcarrentals.com</a></div>
           <div style="margin-top:4px;"><strong>Service of Interest:</strong> ${escapeHtml(serviceInterest)}</div>
           <div style="margin-top:4px;"><strong>Fleet Size:</strong> ${escapeHtml(fleetSize)} &bull; <strong>Contact:</strong> ${escapeHtml(email)}</div>
         </div>
@@ -444,10 +447,24 @@ function initCustomFormDropdowns() {
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
       dropdowns.forEach(other => {
-        if (other !== dropdown) other.classList.remove('open');
+        if (other !== dropdown) {
+          other.classList.remove('open');
+          other.classList.remove('drop-up');
+        }
       });
       const isOpen = dropdown.classList.toggle('open');
       btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+
+      if (isOpen) {
+        // Smart direction detection: if opening near the bottom of viewport, drop UP
+        const rect = btn.getBoundingClientRect();
+        const spaceBelow = window.innerHeight - rect.bottom;
+        if (spaceBelow < 260 && rect.top > 250) {
+          dropdown.classList.add('drop-up');
+        } else {
+          dropdown.classList.remove('drop-up');
+        }
+      }
     });
 
     options.forEach(opt => {
@@ -460,11 +477,14 @@ function initCustomFormDropdowns() {
         opt.classList.add('selected');
 
         if (labelSpan) {
-          labelSpan.textContent = opt.textContent.replace('✓', '').trim();
+          const textSpan = opt.querySelector('span:not(.other-badge)');
+          let displayText = textSpan ? textSpan.textContent.trim() : opt.textContent.replace('✓', '').trim();
+          labelSpan.textContent = displayText;
           labelSpan.classList.remove('placeholder-active');
         }
 
         dropdown.classList.remove('open');
+        dropdown.classList.remove('drop-up');
         btn.setAttribute('aria-expanded', 'false');
 
         // Trigger change event so existing listeners execute

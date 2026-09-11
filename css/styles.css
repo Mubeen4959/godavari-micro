@@ -2803,7 +2803,7 @@ h3.closing-quote-text {
    ========================================================================== */
 
 #contact.section {
-  padding: 52px 0 60px;
+  padding: 56px 0 110px;
 }
 
 .contact-section-wrap {
@@ -2892,8 +2892,10 @@ h3.closing-quote-text {
   background: var(--color-white);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: 30px 28px;
+  padding: 34px 30px;
   box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: visible;
 }
 
 .form-grid {
@@ -3029,10 +3031,36 @@ h3.closing-quote-text {
   border-radius: 10px;
   box-shadow: 0 16px 40px rgba(0, 9, 92, 0.16), 0 4px 12px rgba(0, 0, 0, 0.05);
   padding: 6px;
-  max-height: 290px;
+  max-height: 240px;
   overflow-y: auto;
   z-index: 1000;
   display: none;
+  scrollbar-width: thin;
+  scrollbar-color: #94A3B8 #F1F5F9;
+}
+
+.custom-dropdown.drop-up .custom-dropdown-panel {
+  top: auto;
+  bottom: calc(100% + 6px);
+  box-shadow: 0 -16px 40px rgba(0, 9, 92, 0.16), 0 -4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.custom-dropdown-panel::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-dropdown-panel::-webkit-scrollbar-track {
+  background: #F1F5F9;
+  border-radius: 8px;
+}
+
+.custom-dropdown-panel::-webkit-scrollbar-thumb {
+  background: #94A3B8;
+  border-radius: 8px;
+}
+
+.custom-dropdown-panel::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
 }
 
 .custom-dropdown.open .custom-dropdown-panel {
@@ -3040,10 +3068,10 @@ h3.closing-quote-text {
 }
 
 .custom-option {
-  padding: 10px 14px;
+  padding: 8px 12px;
   border-radius: 6px;
   font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   font-weight: 500;
   color: #1E293B;
   cursor: pointer;
@@ -3073,11 +3101,46 @@ h3.closing-quote-text {
 }
 
 .custom-option-other {
-  border-top: 1px solid #F1F5F9;
-  margin-top: 4px;
-  padding-top: 10px;
-  color: #0B1FA0;
-  font-weight: 600;
+  border-top: 1.5px dashed #CBD5E1;
+  margin-top: 6px;
+  padding: 10px 12px;
+  color: var(--color-primary);
+  font-weight: 700;
+  background: rgba(11, 31, 160, 0.04);
+}
+
+.custom-option-other:hover {
+  background: #EEF2FF;
+  color: var(--color-highlight);
+}
+
+.other-badge {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--color-primary);
+  color: #FFFFFF;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-right: 8px;
+  display: inline-block;
+}
+
+#otherServiceGroup {
+  animation: fadeInDown 0.25s ease-out;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .form-submit-btn {
