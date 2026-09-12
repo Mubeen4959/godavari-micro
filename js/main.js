@@ -710,7 +710,7 @@ function initCaseStudyModal() {
     },
 
     ampm: {
-      name: 'AMPM Rent A Car',
+      name: 'AMPM Car Rentals',
       subtitle: '4.7★ Premier Airport Hub & High-Rating Protection',
       logo: 'assets/client-logo-ampm.png',
       location: 'Prime Airport Location & Operations Hub',
