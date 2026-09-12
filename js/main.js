@@ -661,7 +661,7 @@ function initCaseStudyModal() {
         '<strong>Automated Continuous Rate Parity:</strong> Synchronized dynamic pricing across all online travel agencies every 15 minutes, capturing yield surges during flight delays while avoiding off-peak margin deflation.',
         '<strong>Immediate Dispute Defense Packaging:</strong> Created 48-hour rebuttal packages featuring signed contracts, credit card authorizations, and vehicle return scans &mdash; boosting chargeback win rate to 78.2%.',
         '<strong>Pre-Arrival Renter Verification:</strong> Verified driver licenses and secondary renter credentials before arrival, reducing counter checkout times to under 90 seconds per customer.',
-        '<strong>Daily Post-Return Audit:</strong> Overnight audit of fuel adjustments, toll transponders, and supplemental protection charges, eliminating counter billing leakage.'
+        '<strong>Daily Post-Return Audit:</strong> Overnight audit of fuel adjustments, contract extensions, and supplemental protection charges, eliminating counter billing leakage.'
       ],
       impactSummary: 'By transferring the entire digital, rate, and administrative burden to Godavari Micro\'s 24/7 operating layer, Priceless LAX converted counter chaos into predictable margin lift and consistent dispute protection.'
     },
@@ -682,8 +682,8 @@ function initCaseStudyModal() {
         },
         {
           num: '+72.8%',
-          title: 'Citation & Toll Recovery',
-          desc: 'Subrogation audit matching license plates to toll transactions before renter card authorizations expire.',
+          title: 'Claims & Balance Recovery',
+          desc: 'Subrogation audit compiling damage documentation and recovering balances before authorizations expire.',
           highlight: true
         },
         {
@@ -699,14 +699,14 @@ function initCaseStudyModal() {
           highlight: false
         }
       ],
-      challenge: 'Managing a distributed fleet network across several branch locations led to fragmented communications, uncaptured toll violations, delayed response times to OTA rental leads, and overburdened station managers.',
+      challenge: 'Managing a distributed fleet network across several branch locations led to fragmented communications, unrecovered balances, delayed response times to OTA rental leads, and overburdened station managers.',
       howWeHelped: [
         '<strong>Centralized 24/7 Operations Command:</strong> Consolidated all branch phone inquiries, reservation modifications, and extension authorizations into a single 24-hour logistics operations queue.',
-        '<strong>Systematic Toll & Violation Subrogation:</strong> Ingested state toll authority data and license plate cameras to instantly post toll fees directly to renter folios with zero delay.',
+        '<strong>Systematic Balance & Damage Subrogation:</strong> Systematic reconciliation of damage reports and contract balances posted directly to accounts with zero delay.',
         '<strong>Proactive Renter Grievance Triage:</strong> Contacted returnees flagged by counter return agents within 15 minutes to solve concerns before they turned into 1-star public reviews.',
         '<strong>Overnight Fleet Parity Checks:</strong> Performed daily rate reconciliation across all regional branches every night, guaranteeing rate synchronization across the entire network.'
       ],
-      impactSummary: 'NextCar achieved seamless operational uniformity across all branches, a dramatic 84% surge in positive Google review volume, and near-total capture of previously lost road toll recoveries.'
+      impactSummary: 'NextCar achieved seamless operational uniformity across all branches, a dramatic 84% surge in positive Google review volume, and near-total elimination of unrecovered delinquent balances.'
     },
 
     ampm: {
