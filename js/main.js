@@ -334,6 +334,29 @@ function initContactForm() {
     });
   }
 
+  // Country Code Selector & Dynamic Placeholder
+  const countryCodeSelect = form.querySelector('#countryCodeSelect');
+  const localPhoneInput = form.querySelector('#contactPhone');
+  if (countryCodeSelect && localPhoneInput) {
+    const codePlaceholders = {
+      '+1': '(310) 555-0199',
+      '+91': '98345 01195',
+      '+44': '7911 123456',
+      '+971': '50 123 4567',
+      '+61': '412 345 678',
+      '+49': '151 1234567',
+      '+33': '6 12 34 56 78',
+      '+966': '50 123 4567',
+      '+65': '8123 4567',
+      '+974': '3312 3456',
+      '+965': '9123 4567'
+    };
+    countryCodeSelect.addEventListener('change', () => {
+      const code = countryCodeSelect.value;
+      localPhoneInput.placeholder = codePlaceholders[code] || 'Enter phone number';
+    });
+  }
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const submitBtn = form.querySelector('button[type="submit"]');
@@ -342,7 +365,21 @@ function initContactForm() {
     const name = form.name ? form.name.value.trim() : '';
     const company = form.company ? form.company.value.trim() : '';
     const email = form.email ? form.email.value.trim() : '';
-    const phone = form.phone ? form.phone.value.trim() : '';
+
+    // Country code + Phone Number handling
+    const countryCode = countryCodeSelect ? countryCodeSelect.value : '+1';
+    const localPhone = localPhoneInput ? localPhoneInput.value.trim() : '';
+    let phone = localPhone;
+    if (localPhone) {
+      if (localPhone.startsWith('+')) {
+        phone = localPhone;
+      } else {
+        phone = `${countryCode} ${localPhone}`;
+      }
+    }
+    const fullPhoneHidden = form.querySelector('#fullPhoneInput');
+    if (fullPhoneHidden) fullPhoneHidden.value = phone;
+
     const fleetSelect = form.fleet_size;
     const fleetSize = fleetSelect ? fleetSelect.options[fleetSelect.selectedIndex].text : '';
     const serviceSelect = form.service_interest;
@@ -359,6 +396,7 @@ function initContactForm() {
       'Company / Brand': company,
       'Corporate Email': email,
       'Phone Number': phone,
+      'Country Code': countryCode,
       'Fleet Size Range': fleetSize,
       'Service of Interest': serviceInterest,
       ...(explanation ? { 'Requirement Details': explanation } : {}),
@@ -406,6 +444,7 @@ function initContactForm() {
       <div style="margin-top:12px; padding:12px 14px; background:rgba(255,255,255,0.85); border:1px solid rgba(16,185,129,0.3); border-radius:8px; font-size:0.85rem; color:#065F46;">
         <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 8px;">
           <div><strong>Company / Brand:</strong> ${escapeHtml(company)}</div>
+          <div><strong>Phone:</strong> ${escapeHtml(phone)}</div>
           <div><strong>Service of Interest:</strong> ${escapeHtml(serviceInterest)}</div>
           <div><strong>Fleet Size:</strong> ${escapeHtml(fleetSize)}</div>
           <div><strong>Corporate Email:</strong> ${escapeHtml(email)}</div>
@@ -417,6 +456,8 @@ function initContactForm() {
     `;
 
     form.reset();
+    if (countryCodeSelect) countryCodeSelect.value = '+1';
+    if (localPhoneInput) localPhoneInput.placeholder = '(310) 555-0199';
     if (otherGroup) otherGroup.style.display = 'none';
     if (otherInput) {
       otherInput.required = false;
