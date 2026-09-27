@@ -2945,90 +2945,91 @@ h3.closing-quote-text {
   resize: vertical;
 }
 
-/* Phone Input Group with Scrollable Country Code Selector */
+/* Phone Input Group with Integrated Country Code Selector */
 .phone-input-group {
-  display: flex;
-  align-items: stretch;
-  width: 100%;
-  position: relative;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: stretch !important;
+  width: 100% !important;
+  height: 44px !important;
+  min-height: 44px !important;
+  max-height: 44px !important;
+  background: #F8FAFD;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: all var(--transition-fast);
 }
 
-.country-code-wrap {
-  position: relative;
-  flex: 0 0 134px;
-  max-width: 140px;
+.phone-input-group.focused,
+.phone-input-group:focus-within {
+  border-color: var(--color-highlight);
+  background: var(--color-white);
+  box-shadow: 0 0 0 3px rgba(58, 92, 255, 0.15);
 }
 
 .country-code-select {
-  width: 100%;
-  height: 100%;
-  min-height: 44px;
-  padding: 10px 24px 10px 10px;
-  background: #F8FAFD;
-  border: 1.5px solid var(--color-border);
-  border-right: none;
-  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
-  color: var(--color-text-body);
-  font-size: 0.85rem;
-  font-weight: 600;
+  flex: 0 0 102px !important;
+  width: 102px !important;
+  height: 100% !important;
+  padding: 0 22px 0 10px !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-right: 1.5px solid var(--color-border) !important;
+  border-radius: 0 !important;
+  color: var(--color-text-body) !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
   cursor: pointer;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  transition: all var(--transition-fast);
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%235E667E' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 7px center !important;
+  outline: none !important;
+  box-shadow: none !important;
+  box-sizing: border-box !important;
 }
 
 .country-code-select option {
   background: #FFFFFF;
   color: #060B24;
   font-size: 0.875rem;
-  padding: 8px 10px;
-}
-
-.country-code-chevron {
-  position: absolute;
-  right: 8px;
-  top: 50%;
-  transform: translateY(-50%);
-  pointer-events: none;
-  color: #64748B;
+  padding: 6px 10px;
 }
 
 .phone-number-input {
-  flex: 1;
-  min-width: 0;
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  border-left: 1px solid #CBD5E1;
+  flex: 1 1 auto !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  height: 100% !important;
+  padding: 0 14px !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  color: var(--color-text-body) !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.9375rem !important;
+  outline: none !important;
+  box-shadow: none !important;
+  box-sizing: border-box !important;
 }
 
+.phone-input-group.focused .country-code-select,
 .phone-input-group:focus-within .country-code-select {
-  border-color: var(--color-highlight);
-  background: var(--color-white);
-}
-
-.phone-input-group:focus-within .phone-number-input {
-  border-color: var(--color-highlight);
-  background: var(--color-white);
-}
-
-.country-code-select:focus,
-.phone-number-input:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(58, 92, 255, 0.15);
-  z-index: 2;
+  border-right-color: rgba(58, 92, 255, 0.3) !important;
 }
 
 @media (max-width: 480px) {
-  .country-code-wrap {
-    flex: 0 0 118px;
-    max-width: 125px;
-  }
   .country-code-select {
-    font-size: 0.8rem;
-    padding: 10px 20px 10px 8px;
+    flex: 0 0 94px !important;
+    width: 94px !important;
+    font-size: 0.8rem !important;
+    padding: 0 18px 0 8px !important;
+    background-position: right 5px center !important;
   }
 }
 

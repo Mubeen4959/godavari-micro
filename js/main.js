@@ -337,6 +337,7 @@ function initContactForm() {
   // Country Code Selector & Dynamic Placeholder
   const countryCodeSelect = form.querySelector('#countryCodeSelect');
   const localPhoneInput = form.querySelector('#contactPhone');
+  const phoneGroup = form.querySelector('.phone-input-group');
   if (countryCodeSelect && localPhoneInput) {
     const codePlaceholders = {
       '+1': '(310) 555-0199',
@@ -355,6 +356,25 @@ function initContactForm() {
       const code = countryCodeSelect.value;
       localPhoneInput.placeholder = codePlaceholders[code] || 'Enter phone number';
     });
+
+    if (phoneGroup) {
+      const handleFocus = () => {
+        phoneGroup.classList.add('focused');
+        phoneGroup.style.borderColor = '#3A5CFF';
+        phoneGroup.style.background = '#FFFFFF';
+        phoneGroup.style.boxShadow = '0 0 0 3px rgba(58, 92, 255, 0.15)';
+      };
+      const handleBlur = () => {
+        phoneGroup.classList.remove('focused');
+        phoneGroup.style.borderColor = '#DFE5F0';
+        phoneGroup.style.background = '#F8FAFD';
+        phoneGroup.style.boxShadow = 'none';
+      };
+      localPhoneInput.addEventListener('focus', handleFocus);
+      localPhoneInput.addEventListener('blur', handleBlur);
+      countryCodeSelect.addEventListener('focus', handleFocus);
+      countryCodeSelect.addEventListener('blur', handleBlur);
+    }
   }
 
   form.addEventListener('submit', async (e) => {
@@ -458,6 +478,12 @@ function initContactForm() {
     form.reset();
     if (countryCodeSelect) countryCodeSelect.value = '+1';
     if (localPhoneInput) localPhoneInput.placeholder = '(310) 555-0199';
+    if (phoneGroup) {
+      phoneGroup.classList.remove('focused');
+      phoneGroup.style.borderColor = '#DFE5F0';
+      phoneGroup.style.background = '#F8FAFD';
+      phoneGroup.style.boxShadow = 'none';
+    }
     if (otherGroup) otherGroup.style.display = 'none';
     if (otherInput) {
       otherInput.required = false;

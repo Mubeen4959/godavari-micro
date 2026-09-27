@@ -32,7 +32,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet">
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css?v=2.2">
 </head>
 <body>
 
@@ -617,62 +617,57 @@
 
                 <div class="form-group">
                   <label for="contactPhone" class="form-label">Phone Number *</label>
-                  <div class="phone-input-group">
-                    <div class="country-code-wrap">
-                      <select id="countryCodeSelect" name="country_code" class="country-code-select" aria-label="Country Code">
-                        <option value="+1" selected>🇺🇸 +1 (US)</option>
-                        <option value="+91">🇮🇳 +91 (IN)</option>
-                        <option value="+44">🇬🇧 +44 (UK)</option>
-                        <option value="+971">🇦🇪 +971 (UAE)</option>
-                        <option value="+1">🇨🇦 +1 (CA)</option>
-                        <option value="+61">🇦🇺 +61 (AU)</option>
-                        <option value="+966">🇸🇦 +966 (SA)</option>
-                        <option value="+974">🇶🇦 +974 (QA)</option>
-                        <option value="+965">🇰🇼 +965 (KW)</option>
-                        <option value="+49">🇩🇪 +49 (DE)</option>
-                        <option value="+33">🇫🇷 +33 (FR)</option>
-                        <option value="+31">🇳🇱 +31 (NL)</option>
-                        <option value="+34">🇪🇸 +34 (ES)</option>
-                        <option value="+39">🇮🇹 +39 (IT)</option>
-                        <option value="+41">🇨🇭 +41 (CH)</option>
-                        <option value="+46">🇸🇪 +46 (SE)</option>
-                        <option value="+47">🇳🇴 +47 (NO)</option>
-                        <option value="+45">🇩🇰 +45 (DK)</option>
-                        <option value="+353">🇮🇪 +353 (IE)</option>
-                        <option value="+65">🇸🇬 +65 (SG)</option>
-                        <option value="+64">🇳🇿 +64 (NZ)</option>
-                        <option value="+52">🇲🇽 +52 (MX)</option>
-                        <option value="+55">🇧🇷 +55 (BR)</option>
-                        <option value="+81">🇯🇵 +81 (JP)</option>
-                        <option value="+82">🇰🇷 +82 (KR)</option>
-                        <option value="+86">🇨🇳 +86 (CN)</option>
-                        <option value="+852">🇭🇰 +852 (HK)</option>
-                        <option value="+60">🇲🇾 +60 (MY)</option>
-                        <option value="+62">🇮🇩 +62 (ID)</option>
-                        <option value="+63">🇵🇭 +63 (PH)</option>
-                        <option value="+66">🇹🇭 +66 (TH)</option>
-                        <option value="+84">🇻🇳 +84 (VN)</option>
-                        <option value="+90">🇹🇷 +90 (TR)</option>
-                        <option value="+20">🇪🇬 +20 (EG)</option>
-                        <option value="+27">🇿🇦 +27 (ZA)</option>
-                        <option value="+234">🇳🇬 +234 (NG)</option>
-                        <option value="+254">🇰🇪 +254 (KE)</option>
-                        <option value="+92">🇵🇰 +92 (PK)</option>
-                        <option value="+880">🇧🇩 +880 (BD)</option>
-                        <option value="+94">🇱🇰 +94 (LK)</option>
-                        <option value="+977">🇳🇵 +977 (NP)</option>
-                        <option value="+48">🇵🇱 +48 (PL)</option>
-                        <option value="+32">🇧🇪 +32 (BE)</option>
-                        <option value="+43">🇦🇹 +43 (AT)</option>
-                        <option value="+351">🇵🇹 +351 (PT)</option>
-                        <option value="+30">🇬🇷 +30 (GR)</option>
-                        <option value="+972">🇮🇱 +972 (IL)</option>
-                      </select>
-                      <svg class="country-code-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                      </svg>
-                    </div>
-                    <input type="tel" id="contactPhone" name="phone_local" class="form-input phone-number-input" placeholder="(310) 555-0199" required>
+                  <div class="phone-input-group" style="display: flex; flex-direction: row; align-items: stretch; width: 100%; height: 44px; min-height: 44px; max-height: 44px; background: #F8FAFD; border: 1.5px solid #DFE5F0; border-radius: 6px; box-sizing: border-box; overflow: hidden;">
+                    <select id="countryCodeSelect" name="country_code" class="country-code-select" aria-label="Country Code" style="flex: 0 0 102px; width: 102px; height: 100%; padding: 0 22px 0 10px; background-color: transparent; border: none; border-right: 1.5px solid #DFE5F0; border-radius: 0; color: #33374A; font-family: inherit; font-size: 0.85rem; font-weight: 600; cursor: pointer; -webkit-appearance: none; -moz-appearance: none; appearance: none; background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'10\' height=\'6\' viewBox=\'0 0 10 6\' fill=\'none\'%3E%3Cpath d=\'M1 1L5 5L9 1\' stroke=\'%235E667E\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'/%3E%3C/svg%3E'); background-repeat: no-repeat; background-position: right 7px center; text-overflow: ellipsis; white-space: nowrap; outline: none; box-sizing: border-box;">
+                      <option value="+1" selected>US (+1)</option>
+                      <option value="+91">IN (+91)</option>
+                      <option value="+44">UK (+44)</option>
+                      <option value="+971">UAE (+971)</option>
+                      <option value="+1">CA (+1)</option>
+                      <option value="+61">AU (+61)</option>
+                      <option value="+966">SA (+966)</option>
+                      <option value="+974">QA (+974)</option>
+                      <option value="+965">KW (+965)</option>
+                      <option value="+49">DE (+49)</option>
+                      <option value="+33">FR (+33)</option>
+                      <option value="+31">NL (+31)</option>
+                      <option value="+34">ES (+34)</option>
+                      <option value="+39">IT (+39)</option>
+                      <option value="+41">CH (+41)</option>
+                      <option value="+65">SG (+65)</option>
+                      <option value="+64">NZ (+64)</option>
+                      <option value="+52">MX (+52)</option>
+                      <option value="+55">BR (+55)</option>
+                      <option value="+81">JP (+81)</option>
+                      <option value="+82">KR (+82)</option>
+                      <option value="+86">CN (+86)</option>
+                      <option value="+852">HK (+852)</option>
+                      <option value="+60">MY (+60)</option>
+                      <option value="+62">ID (+62)</option>
+                      <option value="+63">PH (+63)</option>
+                      <option value="+66">TH (+66)</option>
+                      <option value="+84">VN (+84)</option>
+                      <option value="+90">TR (+90)</option>
+                      <option value="+20">EG (+20)</option>
+                      <option value="+27">ZA (+27)</option>
+                      <option value="+234">NG (+234)</option>
+                      <option value="+254">KE (+254)</option>
+                      <option value="+92">PK (+92)</option>
+                      <option value="+880">BD (+880)</option>
+                      <option value="+94">LK (+94)</option>
+                      <option value="+977">NP (+977)</option>
+                      <option value="+48">PL (+48)</option>
+                      <option value="+32">BE (+32)</option>
+                      <option value="+43">AT (+43)</option>
+                      <option value="+351">PT (+351)</option>
+                      <option value="+30">GR (+30)</option>
+                      <option value="+972">IL (+972)</option>
+                      <option value="+46">SE (+46)</option>
+                      <option value="+47">NO (+47)</option>
+                      <option value="+45">DK (+45)</option>
+                      <option value="+353">IE (+353)</option>
+                    </select>
+                    <input type="tel" id="contactPhone" name="phone_local" class="phone-number-input" placeholder="(310) 555-0199" required style="flex: 1 1 auto; width: 100%; min-width: 0; height: 100%; padding: 0 14px; background: transparent; border: none; border-radius: 0; color: #33374A; font-family: inherit; font-size: 0.9375rem; outline: none; box-shadow: none; box-sizing: border-box;">
                     <input type="hidden" id="fullPhoneInput" name="phone">
                   </div>
                 </div>
